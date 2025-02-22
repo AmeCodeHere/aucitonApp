@@ -80,7 +80,9 @@ h2 {
   border-radius: 5px;
   cursor: pointer;
 }
-
+h2{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .login-button:hover {
   background: #0056b3;
 }

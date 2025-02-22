@@ -32,7 +32,9 @@
   gap: 4px;
   width: 100%;
 }
-
+.auction-title{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .form-group label{
   margin-bottom: 5px;
   font-size: 14px;
