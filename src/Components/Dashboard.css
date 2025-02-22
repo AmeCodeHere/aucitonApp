@@ -1,0 +1,66 @@
+/* Dashboard.css */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 70vw;
+    padding: 10px;
+    margin: auto;
+    background-color: #f4f7fa;
+  }
+  
+  .dashboard-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .auction-list {
+    width: 80%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .auction-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .auction-item:last-child {
+    border-bottom: none;
+  }
+  
+  .item-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .item-bid {
+    font-size: 16px;
+    color: #007bff;
+  }
+  
+
+  .create-bid-btn {
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .create-bid-btn:hover {
+    background-color: #218838;
+  }
+  
