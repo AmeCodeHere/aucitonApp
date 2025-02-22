@@ -5,20 +5,21 @@
 
 .container {
     position: relative;
+    margin-top: 40px;
 }
 
 .nav-items {
     width: 70vw;
     margin: auto;
     display: flex;
-    background: rgba(58, 134, 255, 0.2);
+    background: rgba(0, 98, 255, 0.863);
     padding: 10px;
     cursor: pointer;
 }
 
 .centerTitle {
     display: flex;
-
+color: white;
     margin: auto;
 
     justify-content: center;
@@ -30,6 +31,7 @@
     display: flex;
     justify-content: space-evenly;
     flex-grow: 1;
+    color: white;
     align-items: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -38,6 +40,7 @@
     display: flex;
     justify-content: space-evenly;
     flex-grow: 1;
+    color: white;
     align-items: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -47,8 +50,12 @@
     text-align: center;
     font-size: 25px;
     flex-grow: 2;
+    color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
+}
+span{
+    color: white;
 }
 
 .link {
