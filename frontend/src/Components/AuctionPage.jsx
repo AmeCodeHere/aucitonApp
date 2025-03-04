@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './AuctionPage.css';
+import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
 const AuctionPage = () => {
   const [auctionData, setAuctionData] = useState({
@@ -7,60 +10,92 @@ const AuctionPage = () => {
     startingBid: '',
   });
   const createAuction = () => {
-    alert("Auction added")
+    toast.success('Auction Added!', {
+      position: "bottom-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   }
   const handleChange = (e) => {
     // const { name, value } = e.target;
     setAuctionData({ ...auctionData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log('Auction Created:', auctionData);
+    // try {
+    //   const response = await axios.post("http://localhost:3000/save",{...auctionData,id:uuidv4()})
+    //   if (response) {
+        
+    //   }
+    //   console.log('Auction Created:', auctionData);
+    // } catch (error) {
+      
+    // }
+   
   };
 
   return (
-    <div className="auction-container">
+    <>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+
+      />
+      <div className="auction-container">
 
 
-      <form onSubmit={handleSubmit} className="auction-form">
+        <form onSubmit={handleSubmit} className="auction-form">
 
-        <h2 className="auction-title">Create Auction</h2>
+          <h2 className="auction-title">Create Auction</h2>
 
-        <div className="form-group">
+          <div className="form-group">
 
-          <label htmlFor="itemName">Item Name</label>
-          <input
-            type="text"
-            id="itemName"
-            name="itemName"
-            value={auctionData.itemName}
-            onChange={handleChange}
-            required
-            placeholder="Enter the item name"
-          />
-        </div>
+            <label htmlFor="itemName">Item Name</label>
+            <input
+              type="text"
+              id="itemName"
+              name="itemName"
+              value={auctionData.itemName}
+              onChange={handleChange}
+              required
+              placeholder="Enter the item name"
+            />
+          </div>
 
-        <div className="form-group">
+          <div className="form-group">
 
-          <label htmlFor="startingBid">Starting Bid ($)</label>
-          <input
-            type="number"
-            id="startingBid"
-            name="startingBid"
-            value={auctionData.startingBid}
-            onChange={handleChange}
-            required
-            placeholder="Enter the starting bid"
-            min="0"
-            step="0.01"
-          />
-        </div>
+            <label htmlFor="startingBid">Starting Bid ($)</label>
+            <input
+              type="number"
+              id="startingBid"
+              name="startingBid"
+              value={auctionData.startingBid}
+              onChange={handleChange}
+              required
+              placeholder="Enter the starting bid"
+              min="0"
+              step="0.01"
+            />
+          </div>
 
-        <button onClick={createAuction} type="submit" className="auction-btn">Create Auction</button>
-      </form>
-    </div>
+          <button onClick={createAuction} type="submit" className="auction-btn">Create Auction</button>
+        </form>
+      </div>
+    </>
   );
 };
 

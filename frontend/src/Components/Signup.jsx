@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './SignUp.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
+
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -10,15 +13,29 @@ const SignUp = () => {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    try {
+      const response = await axios.post("http://localhost:3000/save", { ...formData, id: uuidv4() })
+      if (response) {
+        console.log(response.data)
+      }
 
-    alert('Form submitted:', formData);
+      setFormData({
+        username: '',
+        email: '',
+        password: ''
+      })
+    } catch (err) {
+      console.error("error in signup",err)
+      
+    }
+
   };
 
 
@@ -27,14 +44,26 @@ const SignUp = () => {
       <div className="sign-box">
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
-   
+
+          <div className="input-group">
+            <label>Username</label>
+            <input
+              type="text"
+              placeholder="Username"
+              name='username'
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+          </div>
           <div className="input-group">
             <label>Email</label>
             <input
               type="email"
+              name='email'
               placeholder="Enter your email"
               value={formData.email}
-              onChange={(e) => handleChange}
+              onChange={handleChange}
               required
             />
           </div>
@@ -44,15 +73,16 @@ const SignUp = () => {
             <label>Password</label>
             <input
               type="password"
+              name='password'
               placeholder="Enter your password"
               value={formData.password}
-              onChange={(e) => handleChange}
+              onChange={handleChange}
               required
             />
           </div>
 
 
-  
+
           <button type="submit" className="sign-button">
             Sign Up
           </button>
