@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './SignUp.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -11,6 +11,7 @@ const SignUp = () => {
     email: '',
     password: '',
   });
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
 
@@ -24,6 +25,7 @@ const SignUp = () => {
       const response = await axios.post("http://localhost:3000/save", { ...formData, id: uuidv4() })
       if (response) {
         console.log(response.data)
+        navigate('/login')
       }
 
       setFormData({
@@ -32,8 +34,8 @@ const SignUp = () => {
         password: ''
       })
     } catch (err) {
-      console.error("error in signup",err)
-      
+      console.error("error in signup", err)
+
     }
 
   };

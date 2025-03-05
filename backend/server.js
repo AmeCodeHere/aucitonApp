@@ -68,7 +68,7 @@ app.post('/saveItem', async (req, res) => {
         const auctionItem = new AuctionItem({ id, itemName, itemAmount })
         await auctionItem.save()
 
-        res.status(201).json({ message: "Auction item saved!!" ,itemAmount})
+        res.status(201).json({ message: "Auction item saved!!", itemAmount })
 
     } catch (err) {
         console.error("error in saving item ", err)
@@ -104,6 +104,32 @@ app.post("/bid", async (req, res) => {
     }
 
 })
+
+//login request
+app.post("/login", async (req, res) => {
+    try {
+        const { email, password } = req.body
+        const find = await AuctionUser.findOne({ email: email })
+
+        if (find) {
+            if (find.password === password) {
+                res.json("Successfully logined!!")
+                console.log("Successfully logined!!")
+            }
+            else {
+                res.json("password is wrong")
+                console.log("Error in password")
+            }
+        } else {
+            res.json("No user found")
+            console.log("No user found")
+        }
+    } catch (err) {
+
+    }
+})
+
+//getRequest 
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

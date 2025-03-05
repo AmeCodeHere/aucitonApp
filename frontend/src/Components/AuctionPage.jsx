@@ -33,8 +33,11 @@ const AuctionPage = () => {
       const response = await axios.post("http://localhost:3000/saveItem",{...auctionData,id:uuidv4()})
       if (response) {
         console.log(response.data)
+        setAuctionData({itemName:"",itemAmount:""})
       }
+      
       // console.log('Auction Created:', auctionData);/
+
     } catch (err) {
       console.error(err)
 
