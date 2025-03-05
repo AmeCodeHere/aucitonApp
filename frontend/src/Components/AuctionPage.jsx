@@ -7,8 +7,9 @@ import { v4 as uuidv4 } from 'uuid';
 const AuctionPage = () => {
   const [auctionData, setAuctionData] = useState({
     itemName: '',
-    startingBid: '',
+    itemAmount: '',
   });
+
   const createAuction = () => {
     toast.success('Auction Added!', {
       position: "bottom-right",
@@ -28,15 +29,16 @@ const AuctionPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // try {
-    //   const response = await axios.post("http://localhost:3000/save",{...auctionData,id:uuidv4()})
-    //   if (response) {
-        
-    //   }
-    //   console.log('Auction Created:', auctionData);
-    // } catch (error) {
-      
-    // }
+    try {
+      const response = await axios.post("http://localhost:3000/saveItem",{...auctionData,id:uuidv4()})
+      if (response) {
+        console.log(response.data)
+      }
+      // console.log('Auction Created:', auctionData);/
+    } catch (err) {
+      console.error(err)
+
+    }
    
   };
 
@@ -82,8 +84,8 @@ const AuctionPage = () => {
             <input
               type="number"
               id="startingBid"
-              name="startingBid"
-              value={auctionData.startingBid}
+              name="itemAmount"
+              value={auctionData.itemAmount}
               onChange={handleChange}
               required
               placeholder="Enter the starting bid"
