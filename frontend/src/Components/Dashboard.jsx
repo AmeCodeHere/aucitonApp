@@ -1,21 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import './Dashboard.css'; 
+import './Dashboard.css';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Dashboard = () => {
 
   const [auctionItems, setAuctionItems] = useState([
-    { id: 1, name: 'Vintage Vase', startingBid: 50.00 },
-    { id: 2, name: 'Classic Car', startingBid: 20000.00 },
-    { id: 3, name: 'Gold Necklace', startingBid: 500.00 },
+    { id: '', itemName: '', itemAmount: '' }
   ]);
 
+  useEffect(() => {
+    const fetchItems = async () => {
 
-  const navigate = useNavigate(); 
+      try {
+
+        const response = await axios.get("http://localhost:3000/getItems")
+
+        setAuctionItems(response.data)
+        console.log("Item Data fetched successfully!!")
+
+      } catch (error) {
+
+        console.error("Error fetching data", err)
+
+      }
+
+    }
+    fetchItems()
+  }, [])
+
+
+  const navigate = useNavigate();
 
   const handleCreateBid = () => {
-    navigate("/auctionPage"); 
+    navigate("/auctionPage");
   };
 
 
@@ -29,8 +48,8 @@ const Dashboard = () => {
         ) : (
           auctionItems.map((item) => (
             <div key={item.id} className="auction-item">
-              <p className="item-name">{item.name}</p>
-              <p className="item-bid">Starting Bid: ${item.startingBid.toFixed(2)}</p>
+              <p className="item-name">{item.itemName}</p>
+              <p className="item-bid">Starting Bid: ${item.itemAmount}</p>
             </div>
           ))
         )}

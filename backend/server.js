@@ -131,6 +131,17 @@ app.post("/login", async (req, res) => {
 
 //getRequest 
 
+app.get("/getItems",async (req,res) => {
+    try {
+        const getItems=await AuctionItem.find()
+        res.json(getItems)
+        // res.status(201).json({message:"Data fetched!!"})
+    } catch (err) {
+        console.error(err)
+        res.status(500).json({message:"Server error fetching data"})
+    }
+})
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 
