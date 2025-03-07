@@ -1,0 +1,121 @@
+.container-L {
+
+    width: 82vw;
+    /*need to change */
+    margin: auto;
+
+}
+
+.content {
+    gap: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 140vh; */
+
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.auction-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(37, 41, 54);
+    height: 250px;
+    width: 250px;
+    border-radius: 20px;
+    border: 2px solid rgb(80, 80, 80);
+    gap: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    color: white;
+}
+
+.auction-chat {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    color: white;
+    height: 270px;
+    width: 454px;
+    background-color: rgb(37, 41, 54);
+    border: 2px solid rgb(80, 80, 80);
+    border-radius: 20px;
+    padding-bottom: 12px;
+}
+
+img {
+    border-radius: 10px;
+}
+
+.h-bider {
+
+    max-width: 80%;
+    margin: auto;
+
+}
+
+.h-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    padding: 5px;
+    gap: 5px;
+    border: 2px solid #55fbac;
+    margin-top: 10px;
+    background-color: rgb(44, 44, 44);
+}
+
+.msg {
+    max-width: 90%;
+    height: 80%;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: rgb(21, 23, 27);
+overflow: hidden;
+}
+
+.p-1 {
+    color: #000000;
+    background-color: #55fbac;
+    padding: 8px 14px;
+    width: 12px;
+    border-radius: 29px;
+}
+
+.b-1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.under {
+    overflow: hidden;
+    margin: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.bid-a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 30px;
+}
+.bid-a .amount{
+    background-color: rgb(44, 44, 44);
+    width: 190px;
+  height: 22px;
+}

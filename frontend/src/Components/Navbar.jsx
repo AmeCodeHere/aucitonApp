@@ -20,7 +20,7 @@ const Navbar = () => {
             <div className="contains-items">
                 <div className='user'>
                     <Link className='link' to="/"  ><p>Home</p></Link>
-                    <Link className='link' to="/"  ><p>Dashboard</p></Link>
+                    <Link className='link' to="/dashboard"  ><p>Dashboard</p></Link>
                     <Link className='link' to="/auctionPage">  <p>Add Auction</p></Link>
                 </div>
                 <div className="btns">

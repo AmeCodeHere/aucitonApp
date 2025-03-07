@@ -7,12 +7,17 @@ import SignUp from './Components/Signup'
 import AuctionPage from './Components/AuctionPage'
 import Dashboard from './Components/Dashboard'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import LandingPage from './Components/LandingPage'
 
 function App() {
   const [count, setCount] = useState(0)
   const router = createBrowserRouter([
     {
       path: "/",
+      element: <><Navbar /><LandingPage /></>
+    },
+    {
+      path: "/dashboard",
       element: <><Navbar /><Dashboard /></>
     },
     {
