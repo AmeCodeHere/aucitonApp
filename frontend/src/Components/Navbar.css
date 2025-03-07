@@ -1,11 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans&display=swap');
+
 * {
     padding: 0;
     margin: 0;
 }
 
 .container {
-    position: relative;
+    display: flex;
+    width: 80vw;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid rgb(80, 80, 80);
+    background-color: rgb(37, 41, 54);
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+
+
     margin-top: 40px;
+}
+
+.p1 {
+    color: #000000;
+    background-color: #55fbac;
+    padding: 10px 16px;
+    border-radius: 29px;
+}
+
+.s1 {
+    color: white;
+}
+
+.s2 {
+    color: #55fbac;
+}
+
+.btn2 {
+    padding: 10px 18px;
+    border: 2px solid #55fbac;
+    border-radius: 8px;
+    background-color: #55fbac;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    transition: background-color 0.4s ease ;
+}
+.btn2:hover{
+    background-color: #55fbaba4;
+    border: 2px solid #55fbab34;
+}
+
+.btn1 {
+    padding: 10px 18px;
+    border-radius: 8px;
+    background-color: rgb(31, 31, 31);
+    border: 2px solid #55fbac;
+    color: #55fbac;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    transition: background-color 0.4s ease ;
+    /* transition: color 0.4s ease ; */
+
+}
+.btn1:hover{
+    background-color: #55fbac;
+    color: rgb(0, 0, 0);
+}
+
+
+.nav-logo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.contains-items {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.btns {
+    display: flex;
+    gap: 15px;
+    font-family: "Open Sans", sans-serif;
+  
+
+}
+
+.user {
+    cursor: pointer;
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    gap: 35px;
+    color: rgba(255, 255, 255, 0.788);
+    align-items: center;
 }
 
 .nav-items {
@@ -19,7 +122,7 @@
 
 .centerTitle {
     display: flex;
-color: white;
+    color: white;
     margin: auto;
 
     justify-content: center;
@@ -54,12 +157,13 @@ color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
-span{
+
+/* span {
     color: white;
-}
+} */
 
 .link {
     list-style: none;
-    color: black;
+    color: rgba(255, 255, 255, 0.788);
     text-decoration: none;
 }
