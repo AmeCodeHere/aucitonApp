@@ -47,16 +47,16 @@ const Dashboard = () => {
           <p>No auction items available</p>
         ) : (
           auctionItems.map((item) => (
-            <div key={item.id} className="auction-item">
+            <div key={item.id} className="auction-items">
               <p className="item-name">{item.itemName}</p>
-              <p className="item-bid">Starting Bid: ${item.itemAmount}</p>
+              <p className="item-bid">Starting Bid: <span>${item.itemAmount}</span></p>
             </div>
           ))
         )}
       </div>
 
 
-      <button className="create-bid-btn" onClick={handleCreateBid}>
+      <button className="btn btn1" onClick={handleCreateBid}>
         Create New Bid
       </button>
     </div>

@@ -82,7 +82,7 @@ const amountToBid = mongoose.Schema({
         require: true,
         unique: true
     },
-    bidAmount: {
+    amount: {
         type: Number,
         min: 0
     }
@@ -94,8 +94,8 @@ const UserBid = mongoose.model("UserBid", amountToBid)
 app.post("/bid", async (req, res) => {
 
     try {
-        const { id, bidAmount } = req.body
-        const userBid = new UserBid({ id, bidAmount })
+        const { id, amount } = req.body
+        const userBid = new UserBid({ id, amount })
         await userBid.save()
         res.status(201).json({ message: "User give a bid for Auction" })
     } catch (err) {

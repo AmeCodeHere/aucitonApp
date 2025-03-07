@@ -13,7 +13,7 @@
     align-items: center;
     /* min-height: 140vh; */
 
-    margin-top: 20px;
+    margin-top: 60px;
     border-radius: 10px;
 }
 
@@ -26,7 +26,7 @@
     height: 250px;
     width: 250px;
     border-radius: 20px;
-    border: 2px solid rgb(80, 80, 80);
+    border: 2px solid rgb(117, 117, 117);
     gap: 20px;
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
@@ -48,7 +48,7 @@
     height: 270px;
     width: 454px;
     background-color: rgb(37, 41, 54);
-    border: 2px solid rgb(80, 80, 80);
+    border: 2px solid rgb(117, 117, 117);
     border-radius: 20px;
     padding-bottom: 12px;
 }
@@ -83,14 +83,15 @@ img {
     margin-top: 10px;
     border-radius: 10px;
     background-color: rgb(21, 23, 27);
-overflow: hidden;
+    overflow: hidden;
 }
 
 .p-1 {
     color: #000000;
     background-color: #55fbac;
-    padding: 8px 14px;
+    padding: 8px 13px;
     width: 12px;
+    text-align: center;
     border-radius: 29px;
 }
 
@@ -107,15 +108,17 @@ overflow: hidden;
     align-items: center;
 }
 
-.bid-a{
+.bid-a {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
     gap: 30px;
 }
-.bid-a .amount{
+
+.bid-a .amount {
     background-color: rgb(44, 44, 44);
     width: 190px;
-  height: 22px;
+    height: 22px;
+    color: white;
 }

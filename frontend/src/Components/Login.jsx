@@ -22,7 +22,7 @@ const Login = () => {
       const loginUser = await axios.post("http://localhost:3000/login", userData)
       if (loginUser.data === "Successfully logined!!") {
         navigate('/')
-       
+
         setuserData({ email: "", password: "" })
 
       } else {

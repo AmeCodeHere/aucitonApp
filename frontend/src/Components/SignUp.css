@@ -8,12 +8,13 @@
   width: 70vw;
   padding: 10px;
   margin: auto;
-  background-color: #f4f7fa;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* Box styling */
 .sign-box {
-  background: white;
+  background-color: rgb(37, 41, 54);
+  border: 2px solid rgb(80, 80, 80);
   padding: 30px;
   width: 350px;
   border-radius: 10px;
@@ -25,7 +26,7 @@
 h2 {
   margin-bottom: 20px;
   font-size: 24px;
-  color: #333;
+  color: white;
 }
 
 /* Input fields */
@@ -35,13 +36,15 @@ h2 {
   text-align: left;
   margin-bottom: 15px;
 }
-.remember-me{
+
+.remember-me {
   margin-right: 10px;
 }
+
 .input-group label {
   margin-bottom: 5px;
   font-size: 14px;
-  color: #666;
+  color: white;
 }
 
 .input-group input {
@@ -61,7 +64,7 @@ h2 {
 }
 
 .options a {
-  color: #007bff;
+  color: #55fbac;
   text-decoration: none;
 }
 
@@ -80,21 +83,24 @@ h2 {
   border-radius: 5px;
   cursor: pointer;
 }
-h2{
+
+h2 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.login-button:hover {
+
+.sign-button:hover {
   background: #0056b3;
 }
 
 /* Sign-Up Link */
 .login-link {
+  color: white;
   margin-top: 15px;
   font-size: 14px;
 }
 
 .login-link a {
-  color: #007bff;
+  color: #55fbac;
   text-decoration: none;
 }
 

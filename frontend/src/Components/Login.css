@@ -3,16 +3,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
     width: 70vw;
     padding: 10px;
     margin: auto;
-    background-color: #f4f4f4;
+    font-family: "Open Sans", sans-serif;
 }
 
 /* Box styling */
 .login-box {
-    background: white;
+    background-color: rgb(37, 41, 54);
+    border: 2px solid rgb(80, 80, 80);
     padding: 30px;
     width: 350px;
     border-radius: 10px;
@@ -24,7 +25,7 @@
 h2 {
     margin-bottom: 20px;
     font-size: 24px;
-    color: #333;
+    color: white;
 }
 
 /* Input fields */
@@ -34,13 +35,16 @@ h2 {
     text-align: left;
     margin-bottom: 15px;
 }
-.remember-me{
+
+.remember-me {
+    color: #55fbac;
     margin-right: 10px;
 }
+
 .input-group label {
     margin-bottom: 5px;
     font-size: 14px;
-    color: #666;
+    /* color: #666; */
 }
 
 .input-group input {
@@ -58,9 +62,12 @@ h2 {
     font-size: 14px;
     margin-bottom: 15px;
 }
+.options label{
+    color: white;
+}
 
 .options a {
-    color: #007bff;
+    color: #55fbac;
     text-decoration: none;
 }
 
@@ -86,12 +93,14 @@ h2 {
 
 /* Sign-Up Link */
 .signup-link {
+    color: white;
     margin-top: 15px;
     font-size: 14px;
 }
 
 .signup-link a {
-    color: #007bff;
+    color: #55fbac;
+    /* color: #007bff; */
     text-decoration: none;
 }
 

@@ -24,8 +24,8 @@ const Navbar = () => {
                     <Link className='link' to="/auctionPage">  <p>Add Auction</p></Link>
                 </div>
                 <div className="btns">
-                    <button className='btn1'><p>Log in</p></button>
-                    <button className='btn2'>Get started for free</button>
+                    <Link to='/login'><button className='btn1'><p>Log in</p></button></Link>
+                    <Link to='/signup'><button className='btn2'>Get started for free</button></Link>
                 </div>
             </div>
             {/* <div className='left-items'>

@@ -4,16 +4,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
   width: 70vw;
   padding: 10px;
   margin: auto;
-  background-color: #f4f7fa;
+
 }
 
 .auction-form {
-  background-color: white;
+  background-color: rgb(37, 41, 54);
+  border: 2px solid rgb(80, 80, 80);
   padding: 20px;
+  font-family: "Open Sans", sans-serif;
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -33,13 +35,15 @@
   width: 100%;
 }
 .auction-title{
+  color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .form-group label{
   margin-bottom: 5px;
   font-size: 14px;
-  color: #666;
+  color: white;
 }
+
 
 input {
   padding: 10px;
