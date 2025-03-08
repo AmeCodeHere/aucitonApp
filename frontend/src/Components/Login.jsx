@@ -3,13 +3,19 @@ import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify'
+import { useSelector, useDispatch } from 'react-redux'
+// import { decrement, increment,multiply } from '..counter/counterSlice'
+import { decrement, increment, multiply } from '../counter/counterSlice'
 
 const Login = () => {
+
+  // const count = useSelector(state => state.counter.value)
+  const dispatch = useDispatch()
 
   const [userData, setuserData] = useState({ email: "", password: "" })
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate()
-
+  const [error, seterror] = useState('')
   const handeData = (e) => {
     setuserData({ ...userData, [e.target.name]: e.target.value })
   }
@@ -20,19 +26,19 @@ const Login = () => {
     try {
 
       const loginUser = await axios.post("http://localhost:3000/login", userData)
-      if (loginUser.data === "Successfully logined!!") {
+
+      const data = await loginUser.data
+      if (data.token) {
+        localStorage.setItem("token", data.token)
+        localStorage.setItem("user", JSON.stringify(data.user))
+        console.log(data.user)
+        dispatch(increment())
         navigate('/')
-
-        setuserData({ email: "", password: "" })
-
-      } else {
-        alert("password or username is incorrect!! ")
       }
     } catch (err) {
+      seterror("login credentials invalid.")
       console.error(err)
     }
-
-    // console.log("Logging in with:", { email, password, rememberMe });
   };
 
   return (
@@ -53,6 +59,10 @@ const Login = () => {
       <div className="login-container">
         <div className="login-box">
           <h2>Login</h2>
+
+          {error &&
+            <div className="err-msg"><p>Your email address or password is incorrect!!</p></div>
+          }
           <form onSubmit={handleLogin}>
 
             <div className="input-group">
@@ -65,6 +75,8 @@ const Login = () => {
                 onChange={handeData}
                 required
               />
+
+
             </div>
 
 

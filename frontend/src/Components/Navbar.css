@@ -52,9 +52,10 @@
     font-style: normal;
     font-variation-settings:
         "wdth" 100;
-    transition: background-color 0.4s ease ;
+    transition: background-color 0.4s ease;
 }
-.btn2:hover{
+
+.btn2:hover {
     background-color: #55fbaba4;
     border: 2px solid #55fbab34;
 }
@@ -71,11 +72,12 @@
     font-style: normal;
     font-variation-settings:
         "wdth" 100;
-    transition: background-color 0.4s ease ;
+    transition: background-color 0.4s ease;
     /* transition: color 0.4s ease ; */
 
 }
-.btn1:hover{
+
+.btn1:hover {
     background-color: #55fbac;
     color: rgb(0, 0, 0);
 }
@@ -97,7 +99,7 @@
     display: flex;
     gap: 15px;
     font-family: "Open Sans", sans-serif;
-  
+    align-items: center;
 
 }
 
@@ -169,7 +171,27 @@
     transition: color 0.1s ease;
 }
 
-.link:hover{
+.link:hover {
     color: white;
+
+}
+
+.userProfile {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    perspective: 1500px;
+}
+
+.userProfile:hover {
+    transform: translateZ(10px) scale(1.055);
+}
+.show-details{
+    position: relative;
+}
+.logout{
+    
+    position: absolute;
+    top: 5px;
+    right: -4px;
 
 }

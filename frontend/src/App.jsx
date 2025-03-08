@@ -8,6 +8,7 @@ import AuctionPage from './Components/AuctionPage'
 import Dashboard from './Components/Dashboard'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import LandingPage from './Components/LandingPage'
+import ProtectedRoute from './Components/ProtectedRoute'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,11 +19,13 @@ function App() {
     },
     {
       path: "/dashboard",
-      element: <><Navbar /><Dashboard /></>
+      // protect route
+      element: <><Navbar /> {<ProtectedRoute><Dashboard /></ProtectedRoute>} </>
     },
     {
+      // protect route
       path: "/auctionPage",
-      element: <><Navbar /><AuctionPage /></>
+      element: <><Navbar /> {<ProtectedRoute><AuctionPage /></ProtectedRoute>} </>
     },
     {
       path: "/login",

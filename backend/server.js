@@ -2,9 +2,10 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cors = require('cors')
-
+const jwt = require("jsonwebtoken")
 const app = express()
 const port = 3000
+require("dotenv").config();
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -109,20 +110,15 @@ app.post("/bid", async (req, res) => {
 app.post("/login", async (req, res) => {
     try {
         const { email, password } = req.body
-        const find = await AuctionUser.findOne({ email: email })
+        const user = await AuctionUser.findOne({ email: email })
 
-        if (find) {
-            if (find.password === password) {
-                res.json("Successfully logined!!")
-                console.log("Successfully logined!!")
-            }
-            else {
-                res.json("password is wrong")
-                console.log("Error in password")
-            }
+
+        if (!user || user.password != password) {
+            return res.status(401).json({ message: "Invalid Credentials" })
         } else {
-            res.json("No user found")
-            console.log("No user found")
+
+            const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET_KEY, { expiresIn: "1h" });
+            res.json({ token, user: { name: user.name, email: user.email } });
         }
     } catch (err) {
 
@@ -131,14 +127,14 @@ app.post("/login", async (req, res) => {
 
 //getRequest 
 
-app.get("/getItems",async (req,res) => {
+app.get("/getItems", async (req, res) => {
     try {
-        const getItems=await AuctionItem.find()
+        const getItems = await AuctionItem.find()
         res.json(getItems)
         // res.status(201).json({message:"Data fetched!!"})
     } catch (err) {
         console.error(err)
-        res.status(500).json({message:"Server error fetching data"})
+        res.status(500).json({ message: "Server error fetching data" })
     }
 })
 

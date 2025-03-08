@@ -107,3 +107,9 @@ h2 {
 .signup-link a:hover {
     text-decoration: underline;
 }
+.err-msg{
+    color: white;
+     font-family: "Open Sans", sans-serif;
+     margin-bottom: 15px;
+
+}
