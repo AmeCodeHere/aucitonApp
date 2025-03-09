@@ -142,3 +142,32 @@ app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 
 })
+
+/////fetching auction itmes in every interval////////////
+let currentIndex = 0
+app.get('/currentAuction', async (req, res) => {
+
+    try {
+        const items = await AuctionItem.find().sort({ _id: 1 })
+
+        if (items.length === 0) {
+            return res.status(404).json({ message: "no auction found!!" })
+        } else {
+            const currentAuction = items[currentIndex];
+
+            res.json(currentAuction);
+
+            // Move to the next auction item after 10 minutes
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % items.length;
+    
+            }, 10 * 1000); // 10 minutes in milliseconds
+
+
+        }
+    } catch (err) {
+        console.error(err)
+        res.status(500).json({ message: "Server error fetching auction" });
+
+    }
+})

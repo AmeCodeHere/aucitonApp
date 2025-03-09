@@ -1,13 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './LandingPage.css'
 import myItem from '../assets/auctionItem.jpg'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
+import { Link, useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
 
     const [bidAmount, setbidAmount] = useState({ amount: "" })
+    const [getAuction, setgetAuction] = useState('')
+    const [token, settoken] = useState('')
+    const navigate=useNavigate()
 
     const handleChange = (e) => {
         setbidAmount({
@@ -15,6 +19,35 @@ const LandingPage = () => {
             [e.target.name]: e.target.value
         })
     }
+    useEffect(() => {
+      const token=localStorage.getItem("token")
+      settoken(token)
+
+    }, [])
+    
+    useEffect(() => {
+        const getAuctionItem = async () => {
+            try {
+                const response = await axios.get("http://localhost:3000/currentAuction")
+                if (response) {
+                    setgetAuction(response.data.itemName)
+                    console.log(response.data.itemName)
+                    console.log(" data found")
+
+                } else {
+                    console.log("no data found")
+
+                }
+            } catch (err) {
+                console.error(err)
+
+            }
+        }
+        getAuctionItem()
+    }, [])
+
+
+
     const storeBid = async (e) => {
         e.preventDefault();
         try {
@@ -56,7 +89,8 @@ const LandingPage = () => {
                 <div className='content'>
                     <div className="auction-item">
                         <img src={myItem} width={252} alt="img" />
-                        <p>BMW</p>
+                        {getAuction? <p>{getAuction}</p>: <p>Loading...</p> }
+                        
 
                     </div>
                     <div className="auction-chat">
@@ -103,7 +137,9 @@ const LandingPage = () => {
                     <input value={bidAmount.amount} name="amount" onChange={handleChange} placeholder='Enter amount'
                         className="amount"
                         type="number" />
-                    <button className='btn1'  onClick={storeBid} type="button">Bid Here</button>
+
+                       
+                    <button className='btn1'  onClick={()=>{ token? storeBid ():navigate("/login")}}  type="button">Bid Here</button>
 
 
 
