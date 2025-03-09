@@ -49,8 +49,9 @@ const LandingPage = () => {
 
 
     const storeBid = async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         try {
+        
             const response = await axios.post("http://localhost:3000/bid", { ...bidAmount, id: uuidv4() })
             console.log(response)
             setbidAmount({ amount: '' })
@@ -139,7 +140,7 @@ const LandingPage = () => {
                         type="number" />
 
                        
-                    <button className='btn1'  onClick={()=>{ token? storeBid ():navigate("/login")}}  type="button">Bid Here</button>
+                    <button className='btn1'  onClick={()=>{ token? bidAmount.amount && storeBid ():navigate("/login")}}  type="button">Bid Here</button>
 
 
 

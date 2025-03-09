@@ -122,3 +122,8 @@ img {
     height: 22px;
     color: white;
 }
+.bb{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

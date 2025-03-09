@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 const Navbar = () => {
     const count = useSelector(state => state.counter.value)
-    
+
     const [token, settoken] = useState('')
 
     const navigate = useNavigate()
@@ -68,7 +68,8 @@ const Navbar = () => {
                         (<div onClick={toggleDrop}>
                             <lord-icon className="userProile"
                                 src="https://cdn.lordicon.com/kdduutaw.json"
-                                trigger="hover"
+                                trigger="loop"
+                                delay="2000"
                                 colors="primary:#55fbac,secondary:#ffffff"
                             >
                             </lord-icon>
