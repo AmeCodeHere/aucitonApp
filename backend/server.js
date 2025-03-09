@@ -155,13 +155,13 @@ app.get('/currentAuction', async (req, res) => {
         } else {
             const currentAuction = items[currentIndex];
 
-            res.json(currentAuction);
+            res.json(currentAuction)
 
             // Move to the next auction item after 10 minutes
             setTimeout(() => {
-                currentIndex = (currentIndex + 1) % items.length;
-    
-            }, 10 * 1000); // 10 minutes in milliseconds
+                currentIndex = (currentIndex + 1) % items.length
+
+            }, 10 * 60 * 1000)
 
 
         }
